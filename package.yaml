@@ -1,0 +1,53 @@
+name:                hs-hdri
+version:             0.1.0.0
+github:              "snut/hs-hdri"
+license:             BSD3
+author:              "Daniel Watts"
+maintainer:          "snutters@gmail.com"
+copyright:           "2018 Daniel Watts"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            A simple library for loading .hdr image files.
+category:            Codec, Graphics, Image
+
+description:
+  A simple library for loading .hdr image files, inspired
+  by the file loading features of the JuicyPixels library.
+
+dependencies:
+- base >= 4.7 && < 5
+- linear
+- vector
+- bytestring
+- half
+- megaparsec
+- transformers
+
+library:
+  source-dirs: src
+
+executables:
+  hs-hdri-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hs-hdri
+
+tests:
+  hs-hdri-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hs-hdri
